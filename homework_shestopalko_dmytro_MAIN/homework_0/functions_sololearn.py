@@ -76,7 +76,22 @@
 # print(func(6))
 
 
+
+
+
 text = input("Enter the text here: ")
+text_list = text.split()
+# print(text_list)
 word = input("Please, enter the word you are looking for: ")
+word_list = word.split()
+# print(word_list)
 text_list = list(text)
-print(text_list.split(text_list))
+
+
+
+# def search(text_list, word_list):
+#     for i in range(text_list):
+#         if word_list == text_list:
+#             print("The word is found")
+#         else:
+#             print("The word is not found")
