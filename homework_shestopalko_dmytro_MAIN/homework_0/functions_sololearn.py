@@ -81,11 +81,11 @@ text_list = text.split()
 word = input("Please, enter the word you are looking for: ")
 word_list = word.split()
 # print(word_list)
-text_list = list(text)
+# text_list = list(text)
 
 
 def search(text_list, word_list) -> str:
-    if any in word_list == text_list:
+    if any in text_list == word:
         print("The word is found")
     else:
         print("The word is not found")
