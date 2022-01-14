@@ -8,9 +8,9 @@ def telephone_function(data, filename="phonebook_dict.json"):
 
 with open("phonebook_dict.json", "r") as json_file:
     data = json.load(json_file)
-    temp = data["first_name"]
-    y = {"name": "Joe", "age": 40}
-    temp.append(y)
+    # temp = person_dict{}
+    # new_entry = {"first_name": "Oleg", "second_name": "Slon", "tel_number": int("+380969669798"), "city": "Rome"}
+    temp.append(new_entry)
 
 telephone_function(data, filename="phonebook_dict.json")
 
