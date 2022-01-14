@@ -1,19 +1,16 @@
 from contextlib import contextmanager
 
-from context_manager.x10_without_context_manager import Programmer
 
-
-# noinspection PyShadowingNames
 @contextmanager
-def programmer_by_generator():
-    programmer = Programmer()
-    programmer.at_begin()
+def context_manager_by_generator():
+    print('Begin')
     try:
-        yield programmer
+        yield
     finally:
-        programmer.at_end()
+        print('End')
 
 
 if __name__ == '__main__':
-    with programmer_by_generator() as programmer:
-        programmer.work(hours=8)
+    with context_manager_by_generator():
+        print('Inside')
+        raise ValueError
