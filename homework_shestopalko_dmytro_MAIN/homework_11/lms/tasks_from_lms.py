@@ -1,4 +1,3 @@
-#
 # with open("weekdays") as week_file:
 #     weekdays = week_file.read()
 #

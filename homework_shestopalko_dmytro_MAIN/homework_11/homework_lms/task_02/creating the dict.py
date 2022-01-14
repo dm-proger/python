@@ -17,7 +17,7 @@
 
 import json
 # Let`s create a simple phonebook as a dict
-
+# I need to append dictionary to a dictionary. Dict made of dicts.
 phonebook_dict = {}
 person_dict = {}
 person_dict["first_name"] = "Dmytro"
