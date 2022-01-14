@@ -1,5 +1,5 @@
 class Animal:
-    CLASS_VARIABLE: CLassVar[int] = 2
+    CLASS_VARIABLE: ClassVar[int] = 2
     _members: list = []
 
 
