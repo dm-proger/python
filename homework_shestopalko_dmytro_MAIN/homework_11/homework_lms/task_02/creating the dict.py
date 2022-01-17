@@ -17,12 +17,12 @@
 
 import json
 
+
 # Choose the option:
 # 1) Find a number
 # 2) Add a new number
 
 def phonebook(*args):
-
     person_dict = {}
     person_dict["first_name"] = "Dmytro"
     person_dict["second_name"] = "Shestopalko"
@@ -42,8 +42,18 @@ def phonebook(*args):
 
     # print(*phonebook_list, sep='\n')
 
-    open_app = int(input(("Find a number = 1 /nAdd a new number = 2" + "/n" "Please, make your choice: ")))
-    print(open_app)
+    open_app = int(input(("Find a number = 1\nAdd a new number = 2\nEnter 9 to exit application\nPlease, make your choice: ")))
+
+    if open_app == 1:
+        print("This is a search function")
+    elif open_app == 2:
+        print("You will add a new number now")
+    elif open_app == 9:
+        print("Exit")
+    else:
+        print("Please, try again: ")
+    return open_app
+
 
 if __name__ == "__main__":
     phonebook()
