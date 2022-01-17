@@ -12,5 +12,5 @@
 
 input_var = input("Hello file world!\nWhat is your name?: ")
 
-with open("myfile", "w") as file_object:
+with open("my_file", "w") as file_object:
     file_object.write(input_var)

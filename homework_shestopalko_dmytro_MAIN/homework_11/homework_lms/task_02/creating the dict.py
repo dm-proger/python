@@ -16,16 +16,34 @@
 # else raise an error. After the user exits, all data should be saved to loaded JSON.
 
 import json
-# Let`s create a simple phonebook as a dict
-# I need to append dictionary to a dictionary. Dict made of dicts.
-phonebook_dict = {}
-person_dict = {}
-person_dict["first_name"] = "Dmytro"
-person_dict["second_name"] = "Shestopalko"
-person_dict["tel_number"] = int("+380673291790")
-person_dict["city"] = "IF"
 
-with open("phonebook_dict.json", "w") as phonebook_file:
-    json.dump(person_dict, phonebook_file)
+# Choose the option:
+# 1) Find a number
+# 2) Add a new number
 
+def phonebook(*args):
 
+    person_dict = {}
+    person_dict["first_name"] = "Dmytro"
+    person_dict["second_name"] = "Shestopalko"
+    person_dict["tel_number"] = int("+380673291790")
+    person_dict["city"] = "IF"
+
+    person_dict_02 = {}
+    person_dict_02["first_name"] = "Dmytro2"
+    person_dict_02["second_name"] = "Shestopalko2"
+    person_dict_02["tel_number"] = int("+38067329179022")
+    person_dict_02["city"] = "IF2"
+
+    phonebook_list = [person_dict, person_dict_02]
+
+    with open("phonebook_list.json", "w") as phonebook_file:
+        json.dump(phonebook_list, phonebook_file)
+
+    # print(*phonebook_list, sep='\n')
+
+    open_app = int(input(("Find a number = 1 /nAdd a new number = 2" + "/n" "Please, make your choice: ")))
+    print(open_app)
+
+if __name__ == "__main__":
+    phonebook()
