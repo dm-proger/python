@@ -7,11 +7,11 @@
 class Dog():
     class_attr = 7
 
+    def __init__(self, name: str, human_age: int = 29):
 
-def __init__(self, name: str, human_age: int = 29):
-    self.human_age = 1 / class_attr
-    self.name = name
-    self.human_age = human_age
+        self.human_age = 1 / self.class_attr
+        self.name = name
+        self.human_age = human_age
 
 
 def calculate():
@@ -22,4 +22,3 @@ def calculate():
 
 if __name__ == "__main__":
     calculate()
-
