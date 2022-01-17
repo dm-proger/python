@@ -17,12 +17,7 @@
 
 import json
 
-
-# Choose the option:
-# 1) Find a number
-# 2) Add a new number
-
-def phonebook(*args):
+def phonebook(phonebook_list = list, filter_object=None):
     person_dict = {}
     person_dict["first_name"] = "Dmytro"
     person_dict["second_name"] = "Shestopalko"
@@ -30,22 +25,37 @@ def phonebook(*args):
     person_dict["city"] = "IF"
 
     person_dict_02 = {}
-    person_dict_02["first_name"] = "Dmytro2"
-    person_dict_02["second_name"] = "Shestopalko2"
-    person_dict_02["tel_number"] = int("+38067329179022")
+    person_dict_02["first_name"] = "Maria"
+    person_dict_02["second_name"] = "Kovaliuk"
+    person_dict_02["tel_number"] = int("+380675643215")
     person_dict_02["city"] = "IF2"
 
-    phonebook_list = [person_dict, person_dict_02]
-
-    with open("phonebook_list.json", "w") as phonebook_file:
-        json.dump(phonebook_list, phonebook_file)
+    person_dict_new_entry = {}
 
     open_app = int(input(("Find a number = 1\nAdd a new number = 2\nEnter 9 to exit application\nPlease, make your choice: ")))
 
     if open_app == 1:
-        print("This is a search function")
+        search_input = input("Enter the key word: ")
+        filter_object = filter(lambda a: search_input in phonebook_list, phonebook_list)
+        print(filter_object)
+
     elif open_app == 2:
-        print("You will add a new number now")
+
+        new_entry_01 = input("Enter your first name: ")
+        new_entry_02 = input("Enter second name: ")
+        new_entry_03 = int(input("Enter the phone number: "))
+        new_entry_04 = input("Enter the city: ")
+
+        person_dict_new_entry["first_name"] = new_entry_01
+        person_dict_new_entry["second_name"] = new_entry_02
+        person_dict_new_entry["tel_number"] = new_entry_03
+        person_dict_new_entry["city"] = new_entry_04
+
+        phonebook_list = [person_dict, person_dict_02, person_dict_new_entry]
+
+        with open("phonebook_list.json", "w") as phonebook_file:
+            json.dump(phonebook_list, phonebook_file)
+
     elif open_app == 9:
         print("Exit")
     else:
