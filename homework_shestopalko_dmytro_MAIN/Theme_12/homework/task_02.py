@@ -9,17 +9,16 @@ from typing import ClassVar
 class Dog():
     class_attr: ClassVar[int] = 7
 
-    def __init__(self, name: str, human_age: int = 29):
+    def __init__(self, name: str, initial_age: int = 3):
 
-        self.human_age = 1 / self.class_attr
+        self.dog_age = self.class_attr * initial_age
         self.name = name
-        self.human_age = human_age
 
 
 def calculate():
-    age_dog_01 = Dog("Bars", 26)
+    age_dog_01 = Dog("Bars", initial_age=3)
 
-    print(f"Hello, my name is {age_dog_01.name} and I am {age_dog_01.human_age} years old.")
+    print(f"Hello, my name is {age_dog_01.name} and I am {age_dog_01.dog_age} years old.")
 
 
 if __name__ == "__main__":
