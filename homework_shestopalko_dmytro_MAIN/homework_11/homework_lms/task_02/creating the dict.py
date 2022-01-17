@@ -40,8 +40,6 @@ def phonebook(*args):
     with open("phonebook_list.json", "w") as phonebook_file:
         json.dump(phonebook_list, phonebook_file)
 
-    # print(*phonebook_list, sep='\n')
-
     open_app = int(input(("Find a number = 1\nAdd a new number = 2\nEnter 9 to exit application\nPlease, make your choice: ")))
 
     if open_app == 1:
