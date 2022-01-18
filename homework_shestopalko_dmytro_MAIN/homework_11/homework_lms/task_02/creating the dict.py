@@ -35,20 +35,18 @@ def phonebook(phonebook_list = list, filter_object=None):
     open_app = int(input(("Find a number = 1\nAdd a new number = 2\nEnter 9 to exit application\nPlease, make your choice: ")))
 
     if open_app == 1:
-        def find_number(*args) -> bool:
+        def find_number(*args) -> int:
             search_input = input("Enter the key word: ")
-            if search_input in person_dict:
-                print(True)
-            else:
-                print(False)
+            for key, value in person_dict.items():
+                if search_input == value:
+                    print(person_dict.get("tel_number"))
+                    break
+                else:
+                    print("There is no such a user name")
+                    break
         find_number()
-        # filter_object = filter(lambda search_input: search_input in phonebook_list, phonebook_list)
-        # print(filter_object)
-
-
 
     elif open_app == 2:
-
         new_entry_01 = input("Enter your first name: ")
         new_entry_02 = input("Enter second name: ")
         new_entry_03 = int(input("Enter the phone number: "))
