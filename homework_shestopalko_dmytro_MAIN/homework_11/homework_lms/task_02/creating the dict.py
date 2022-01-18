@@ -17,7 +17,8 @@
 
 import json
 
-def phonebook(phonebook_list = list, filter_object=None):
+
+def phonebook(phonebook_list=list, filter_object=None):
     person_dict = {}
     person_dict["first_name"] = "Dmytro"
     person_dict["second_name"] = "Shestopalko"
@@ -41,33 +42,34 @@ def phonebook(phonebook_list = list, filter_object=None):
                 if search_input == value:
                     print(person_dict.get("tel_number"))
                     break
-                else:
-                    print("There is no such a user name")
-                    break
+            else:
+                print("There is no such a user name")
         find_number()
 
     elif open_app == 2:
-        new_entry_01 = input("Enter your first name: ")
-        new_entry_02 = input("Enter second name: ")
-        new_entry_03 = int(input("Enter the phone number: "))
-        new_entry_04 = input("Enter the city: ")
+        def new_user(*args):
+            new_entry_01 = input("Enter your first name: ")
+            new_entry_02 = input("Enter second name: ")
+            new_entry_03 = int(input("Enter the phone number: "))
+            new_entry_04 = input("Enter the city: ")
 
-        person_dict_new_entry["first_name"] = new_entry_01
-        person_dict_new_entry["second_name"] = new_entry_02
-        person_dict_new_entry["tel_number"] = new_entry_03
-        person_dict_new_entry["city"] = new_entry_04
+            person_dict_new_entry["first_name"] = new_entry_01
+            person_dict_new_entry["second_name"] = new_entry_02
+            person_dict_new_entry["tel_number"] = new_entry_03
+            person_dict_new_entry["city"] = new_entry_04
 
-        phonebook_list = [person_dict, person_dict_02, person_dict_new_entry]
+            phonebook_list = [person_dict, person_dict_02, person_dict_new_entry]
 
-        with open("phonebook_list.json", "w") as phonebook_file:
-            json.dump(phonebook_list, phonebook_file)
+            with open("phonebook_list.json", "w") as phonebook_file:
+                json.dump(phonebook_list, phonebook_file)
+
+            new_user()
 
     elif open_app == 9:
         print("Exit")
     else:
         print("Please, try again: ")
     return open_app
-
 
 if __name__ == "__main__":
     phonebook()
