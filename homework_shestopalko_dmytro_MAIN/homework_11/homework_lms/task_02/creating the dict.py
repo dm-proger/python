@@ -42,10 +42,15 @@ def phonebook(phonebook_list=list, filter_object=None):
                 if search_input == value:
                     print(person_dict.get("tel_number"))
                     break
-            else:
-                print("There is no such a user name")
+            for key, value in person_dict_02.items():
+                if search_input == value:
+                    print(person_dict_02.get("tel_number"))
+                    break
+            for key, value in person_dict_new_entry.items():
+                if search_input == value:
+                    print(person_dict_new_entry.get("tel_number"))
+                    break
         find_number()
-
     elif open_app == 2:
         def new_user(*args):
             new_entry_01 = input("Enter your first name: ")
