@@ -7,16 +7,25 @@
 # Also, create a simple generic function, which takes as input instance of a Cat or Dog classes
 # and performs talk method on input parameter.
 
+def animal_function():
+    animal_input = input("Say something: ")
+
+
 class Animal():
     def __init__(self, talk: str):
         self.talk = talk
 
+
 class Dog(Animal):
-    def __init__(self):
-        super().__init__(self)
-        print("woof woof")
+    def talk(self):
+        print("bow")
+
 
 class Cat(Animal):
-    def __init__(self):
-        super().__init__(self)
+    def talk(self):
         print("meow")
+        
+
+print(animal_input.talk)
+
+animal_function()
