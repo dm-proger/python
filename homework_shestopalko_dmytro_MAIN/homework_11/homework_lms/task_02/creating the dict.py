@@ -35,9 +35,17 @@ def phonebook(phonebook_list = list, filter_object=None):
     open_app = int(input(("Find a number = 1\nAdd a new number = 2\nEnter 9 to exit application\nPlease, make your choice: ")))
 
     if open_app == 1:
-        search_input = input("Enter the key word: ")
-        filter_object = filter(lambda a: search_input in phonebook_list, phonebook_list)
-        print(filter_object)
+        def find_number(*args) -> bool:
+            search_input = input("Enter the key word: ")
+            if search_input in person_dict:
+                print(True)
+            else:
+                print(False)
+        find_number()
+        # filter_object = filter(lambda search_input: search_input in phonebook_list, phonebook_list)
+        # print(filter_object)
+
+
 
     elif open_app == 2:
 
