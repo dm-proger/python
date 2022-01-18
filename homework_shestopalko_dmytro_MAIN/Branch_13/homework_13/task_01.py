@@ -35,5 +35,5 @@ class Student(Person):
         self.hobby = hobby
 
 student_01 = Student("7A", "math", "swimming")
-print(f"My name is {student_01.first_name}, my second name is {student_01.second_name}. I am a pupil of {student_01.form}."
+print(f"My name is {student_01.first_name}, my second name is {student_01.second_name}. I am a pupil of {student_01.form}. "
       f"My favorite subject is {student_01.favorite_subject}, my hobby is {student_01.hobby}")
