@@ -63,7 +63,7 @@ def phonebook(phonebook_list=list, filter_object=None):
             with open("phonebook_list.json", "w") as phonebook_file:
                 json.dump(phonebook_list, phonebook_file)
 
-            new_user()
+        new_user()
 
     elif open_app == 9:
         print("Exit")
