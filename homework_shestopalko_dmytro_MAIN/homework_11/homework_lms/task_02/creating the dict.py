@@ -16,54 +16,57 @@
 # else raise an error. After the user exits, all data should be saved to loaded JSON.
 
 import json
+from typing import Optional
 
 
-def phonebook(phonebook_list=list, filter_object=None):
+def phonebook(phonebook_list: Optional[list] = None, filter_object=None):
+
     person_dict = {}
     person_dict["first_name"] = "Dmytro"
     person_dict["second_name"] = "Shestopalko"
-    person_dict["tel_number"] = int("+380673291790")
+    person_dict["tel_number"] = +380673291790
     person_dict["city"] = "IF"
 
     person_dict_02 = {}
     person_dict_02["first_name"] = "Maria"
     person_dict_02["second_name"] = "Kovaliuk"
-    person_dict_02["tel_number"] = int("+380675643215")
+    person_dict_02["tel_number"] = +380675643215
     person_dict_02["city"] = "IF2"
 
-    person_dict_new_entry = {}
+    person_dict_new_user = {}
 
     open_app = int(input(("Find a number = 1\nAdd a new number = 2\nEnter 9 to exit application\nPlease, make your choice: ")))
 
     if open_app == 1:
-        def find_number(*args) -> int:
+        def search(*args) -> int:
             search_input = input("Enter the key word: ")
             for key, value in person_dict.items():
                 if search_input == value:
-                    print(person_dict.get("tel_number"))
+                    print(person_dict["tel_number"])
                     break
             for key, value in person_dict_02.items():
                 if search_input == value:
-                    print(person_dict_02.get("tel_number"))
+                    print(person_dict_02["tel_number"])
                     break
-            for key, value in person_dict_new_entry.items():
+            for key, value in person_dict_new_user.items():
                 if search_input == value:
-                    print(person_dict_new_entry.get("tel_number"))
+                    print(person_dict_new_user["tel_number"])
                     break
-        find_number()
+        search()
     elif open_app == 2:
         def new_user(*args):
-            new_entry_01 = input("Enter your first name: ")
-            new_entry_02 = input("Enter second name: ")
-            new_entry_03 = int(input("Enter the phone number: "))
-            new_entry_04 = input("Enter the city: ")
+            first_name = input("Enter your first name: ")
+            second_name = input("Enter second name: ")
+            phone_number = int(input("Enter the phone number: "))
+            city = input("Enter the city: ")
 
-            person_dict_new_entry["first_name"] = new_entry_01
-            person_dict_new_entry["second_name"] = new_entry_02
-            person_dict_new_entry["tel_number"] = new_entry_03
-            person_dict_new_entry["city"] = new_entry_04
+            person_dict_new_user["first_name"] = first_name
+            person_dict_new_user["second_name"] = second_name
+            person_dict_new_user["tel_number"] = phone_number
+            person_dict_new_user["city"] = city
 
-            phonebook_list = [person_dict, person_dict_02, person_dict_new_entry]
+            phonebook_list = [person_dict, person_dict_02, person_dict_new_user]
+            # phonebook_list = phonebook_list or []
 
             with open("phonebook_list.json", "w") as phonebook_file:
                 json.dump(phonebook_list, phonebook_file)
