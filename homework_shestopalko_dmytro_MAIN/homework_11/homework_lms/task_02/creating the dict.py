@@ -19,8 +19,44 @@ import json
 from typing import Optional
 
 
-def phonebook(phonebook_list: Optional[list] = None, filter_object=None):
+def search(person_dict: dict, person_dict_02: dict, person_dict_new_user: dict) -> int:
+    search_input = input("Enter the key word: ")
+    for key, value in person_dict.items():
+        if search_input == value:
+            print(person_dict["tel_number"])
+            break
+    for key, value in person_dict_02.items():
+        if search_input == value:
+            print(person_dict_02["tel_number"])
+            break
+    for key, value in person_dict_new_user.items():
+        if search_input == value:
+            print(person_dict_new_user["tel_number"])
+            break
+    for key, value in person_dict.items():
+        if search_input != value:
+            print("Contact doesn`t exist")
+            break
 
+
+def new_user(person_dict, person_dict_02, person_dict_new_user):
+    first_name = input("Enter your first name: ")
+    second_name = input("Enter second name: ")
+    phone_number = int(input("Enter the phone number: "))
+    city = input("Enter the city: ")
+
+    person_dict_new_user["first_name"] = first_name
+    person_dict_new_user["second_name"] = second_name
+    person_dict_new_user["tel_number"] = phone_number
+    person_dict_new_user["city"] = city
+
+    phonebook_list = [person_dict, person_dict_02, person_dict_new_user]
+
+    with open("phonebook_list.json", "w") as phonebook_file:
+        json.dump(phonebook_list, phonebook_file)
+
+
+def phonebook(phonebook_list: Optional[list] = None, filter_object=None):
     person_dict = {}
     person_dict["first_name"] = "Dmytro"
     person_dict["second_name"] = "Shestopalko"
@@ -35,53 +71,19 @@ def phonebook(phonebook_list: Optional[list] = None, filter_object=None):
 
     person_dict_new_user = {}
 
-    open_app = int(input(("Find a number = 1\nAdd a new number = 2\nEnter 9 to exit application\nPlease, make your choice: ")))
+    open_app = int(
+        input(("Find a number = 1\nAdd a new number = 2\nEnter 9 to exit application\nPlease, make your choice: ")))
 
     if open_app == 1:
-        def search(*args) -> int:
-            search_input = input("Enter the key word: ")
-            for key, value in person_dict.items():
-                if search_input == value:
-                    print(person_dict["tel_number"])
-                    break
-            for key, value in person_dict_02.items():
-                if search_input == value:
-                    print(person_dict_02["tel_number"])
-                    break
-            for key, value in person_dict_new_user.items():
-                if search_input == value:
-                    print(person_dict_new_user["tel_number"])
-                    break
-            for key, value in person_dict.items():
-                if search_input != value:
-                    print("Contact doesn`t exist")
-                    break
-        search()
+        search(person_dict, person_dict_02, person_dict_new_user)
     elif open_app == 2:
-        def new_user(*args):
-            first_name = input("Enter your first name: ")
-            second_name = input("Enter second name: ")
-            phone_number = int(input("Enter the phone number: "))
-            city = input("Enter the city: ")
-
-            person_dict_new_user["first_name"] = first_name
-            person_dict_new_user["second_name"] = second_name
-            person_dict_new_user["tel_number"] = phone_number
-            person_dict_new_user["city"] = city
-
-            phonebook_list = [person_dict, person_dict_02, person_dict_new_user]
-            # phonebook_list = phonebook_list or []
-
-            with open("phonebook_list.json", "w") as phonebook_file:
-                json.dump(phonebook_list, phonebook_file)
-
-        new_user()
-
+        new_user(person_dict, person_dict_02, person_dict_new_user)
     elif open_app == 9:
         print("Exit")
     else:
         print("Please, try again: ")
     return open_app
+
 
 if __name__ == "__main__":
     phonebook()
