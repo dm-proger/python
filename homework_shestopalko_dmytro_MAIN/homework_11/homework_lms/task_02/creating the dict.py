@@ -52,6 +52,10 @@ def phonebook(phonebook_list: Optional[list] = None, filter_object=None):
                 if search_input == value:
                     print(person_dict_new_user["tel_number"])
                     break
+            for key, value in person_dict.items():
+                if search_input != value:
+                    print("Contact doesn`t exist")
+                    break
         search()
     elif open_app == 2:
         def new_user(*args):
