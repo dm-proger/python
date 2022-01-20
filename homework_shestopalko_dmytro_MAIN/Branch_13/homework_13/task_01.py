@@ -23,9 +23,11 @@ class Teacher(Person):
         self.subject = subject
         self.work_hrs = work_hrs
 
+
 teacher_01 = Teacher(16000, "medicine", 20)
 print(f"My name is {teacher_01.first_name} {teacher_01.second_name}. I am {teacher_01.age}. "
       f"I work for salary {teacher_01.salary} grn {teacher_01.work_hrs} per week")
+
 
 class Student(Person):
     def __init__(self, form: str, favorite_subject: str, hobby: str):
@@ -34,6 +36,8 @@ class Student(Person):
         self.favorite_subject = favorite_subject
         self.hobby = hobby
 
+
 student_01 = Student("7A", "math", "swimming")
-print(f"My name is {student_01.first_name}, my second name is {student_01.second_name}. I am a pupil of {student_01.form}. "
-      f"My favorite subject is {student_01.favorite_subject}, my hobby is {student_01.hobby}")
+print(
+    f"My name is {student_01.first_name}, my second name is {student_01.second_name}. I am a pupil of {student_01.form}. "
+    f"My favorite subject is {student_01.favorite_subject}, my hobby is {student_01.hobby}")
