@@ -25,7 +25,7 @@ class Author(Library):
         self.birthday = birthday
         self.books = books
 
-author_001 = ("Mark Zukerberg", "USA", "11.11.1990", "How to become a billionaire")
+author_001 = Author("Mark Zukerberg", "USA", "11.11.1990", "How to become a billionaire.")
 print(f"Hello! I am {author_001.name_auth}. My homecountry is {author_001.country}. My birthday is on {author_001.birthday}."
       f"I wrote a book {author_001.books}")
 
@@ -44,13 +44,6 @@ class Book(Library):
 
     def group_by_year(self, year: int):
         pass
-
-
-    if __name__ == "__main__":
-        main()
-
-
-
 
 
 
