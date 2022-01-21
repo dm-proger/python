@@ -2,16 +2,16 @@ def animals_say_hello(animal):
     print(animal.say_hi())  # say_hi - is a method
 
     class Animal:
-        def say_hi():
+        def say_hi(self):
             pass
 
     class Cat(Animal):
         def say_hi(self):
-            print("meow")
+            return "meow"
 
     class Dog(Animal):
         def say_hi(self):
-            print("bow")
+            return "bow"
 
     cat = Cat()
     dog = Dog()

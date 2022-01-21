@@ -7,25 +7,27 @@
 # Also, create a simple generic function, which takes as input instance of a Cat or Dog classes
 # and performs talk method on input parameter.
 
-def animal_function():
-    animal_input = input("Say something: ")
-
-
 class Animal():
-    def __init__(self, talk: str):
-        self.talk = talk
-
+    def talk(self):
+        raise NotImplementedError("Please, use talk in a child class")
 
 class Dog(Animal):
     def talk(self):
-        print("bow")
-
+        print("woof, woof")
 
 class Cat(Animal):
     def talk(self):
         print("meow")
-        
 
-print(animal_input.talk)
+def animal_speak(pet):
+    pet.talk()
 
-animal_function()
+
+dog = Dog()
+cat = Cat()
+
+if __name__ == "__main__":
+
+    animal_speak(dog)
+    animal_speak(cat)
+
