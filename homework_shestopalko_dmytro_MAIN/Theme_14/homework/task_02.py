@@ -12,8 +12,11 @@
 # Also, the book class should have a class variable which holds the amount of all existing books
 
 class Library():
-    def __init__(self):
-        pass
+    # all_books =
+    def __init__(self, books: list, authors: list):
+        self.books = books
+        self.authors = authors
+
 
 class Author(Library):
     def __init__(self, name_auth: str, country: str, birthday: str, books: list):
@@ -22,10 +25,34 @@ class Author(Library):
         self.birthday = birthday
         self.books = books
 
+author_001 = ("Mark Zukerberg", "USA", "11.11.1990", "How to become a billionaire")
+print(f"Hello! I am {author_001.name_auth}. My homecountry is {author_001.country}. My birthday is on {author_001.birthday}."
+      f"I wrote a book {author_001.books}")
+
 
 class Book(Library):
-    def __init__(self, name_book: str, year: int, author):
+    def __init__(self, name_book: str, year: int, author: str):
         self.name_book = name_book
         self.year = year
-        self.author = Author.author
+        self.author = Author(author)
+
+    def new_book(self, name_book: str, year: int, author: Author):
+        pass
+
+    def group_by_author(self, author: Author):
+        pass
+
+    def group_by_year(self, year: int):
+        pass
+
+
+    if __name__ == "__main__":
+        main()
+
+
+
+
+
+
+
 
