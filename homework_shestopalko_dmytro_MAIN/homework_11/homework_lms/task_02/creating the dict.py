@@ -19,71 +19,61 @@ import json
 from typing import Optional
 
 
-def search(person_dict: dict, person_dict_02: dict, person_dict_new_user: dict) -> int:
+def search(phonebook_list: list):
     search_input = input("Enter the key word: ")
-    for key, value in person_dict.items():
-        if search_input == value:
-            print(person_dict["tel_number"])
-            break
-    for key, value in person_dict_02.items():
-        if search_input == value:
-            print(person_dict_02["tel_number"])
-            break
-    for key, value in person_dict_new_user.items():
-        if search_input == value:
-            print(person_dict_new_user["tel_number"])
-            break
-    for key, value in person_dict.items():
-        if search_input != value:
-            print("Contact doesn`t exist")
-            break
+    search_result = []
+    for contact in phonebook_list:
+        for value in contact.values():
+            if search_input == value:
+                search_result.append(contact)
+                break
+    if search_result == []:
+        print("This user doesn`t exist")
+    else:
+        for contact in search_result:
+            print(contact)
+    phonebook(phonebook_list)
 
 
-def new_user(person_dict, person_dict_02, person_dict_new_user):
+def new_user(phonebook_list: list):
     first_name = input("Enter your first name: ")
     second_name = input("Enter second name: ")
     phone_number = int(input("Enter the phone number: "))
     city = input("Enter the city: ")
 
+    person_dict_new_user = {}
     person_dict_new_user["first_name"] = first_name
     person_dict_new_user["second_name"] = second_name
     person_dict_new_user["tel_number"] = phone_number
     person_dict_new_user["city"] = city
 
-    phonebook_list = [person_dict, person_dict_02, person_dict_new_user]
-
-    with open("phonebook_list.json", "w") as phonebook_file:
-        json.dump(phonebook_list, phonebook_file)
+    phonebook_list.append(person_dict_new_user)
+    phonebook(phonebook_list)
 
 
-def phonebook(phonebook_list: Optional[list] = None, filter_object=None):
-    person_dict = {}
-    person_dict["first_name"] = "Dmytro"
-    person_dict["second_name"] = "Shestopalko"
-    person_dict["tel_number"] = +380673291790
-    person_dict["city"] = "IF"
+def phonebook(phonebook_list: Optional[list] = None):
 
-    person_dict_02 = {}
-    person_dict_02["first_name"] = "Maria"
-    person_dict_02["second_name"] = "Kovaliuk"
-    person_dict_02["tel_number"] = +380675643215
-    person_dict_02["city"] = "IF2"
-
-    person_dict_new_user = {}
-
-    open_app = int(
-        input(("Find a number = 1\nAdd a new number = 2\nEnter 9 to exit application\nPlease, make your choice: ")))
+    open_app = int(input(("Find a number = 1\nAdd a new number = 2\nEnter 9 to exit application\nPlease, make your choice: ")))
 
     if open_app == 1:
-        search(person_dict, person_dict_02, person_dict_new_user)
+        search(phonebook_list)
     elif open_app == 2:
-        new_user(person_dict, person_dict_02, person_dict_new_user)
+        new_user(phonebook_list)
     elif open_app == 9:
+        with open("phonebook_list.json", "w") as phonebook_file:
+            json.dump(phonebook_list, phonebook_file)
         print("Exit")
+        exit()
     else:
         print("Please, try again: ")
-    return open_app
+
+def main():
+    with open("phonebook_list.json", "r") as phonebook_file:
+        phonebook_list = json.load(phonebook_file)
+    phonebook(phonebook_list)
+
+
 
 
 if __name__ == "__main__":
-    phonebook()
+    main()
