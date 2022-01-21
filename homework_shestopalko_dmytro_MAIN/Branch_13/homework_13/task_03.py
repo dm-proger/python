@@ -1,7 +1,4 @@
-# Product Store
-#
 # Write a class Product that has three attributes:
-#
 # type
 # name
 # price
@@ -25,8 +22,8 @@
 # get_product_info(product_name) - returns a tuple with product name and amount of items in the store.
 
 class Product():
-    def __init__(self, type: str, name: str, price: int):
-        self.type = type
+    def __init__(self, type_atr: str, name: str, price: int):
+        self.type_atr = type_atr
         self.name = name
         self.price = price
 
@@ -39,10 +36,10 @@ class ProductStore(Product):
         self.get_all_products = get_all_products
         self.get_product_info = get_product_info
 
-p = Product('Sport', 'Football T-Shirt', 100)
-p2 = Product(Food, 'Ramen, 1.5)
+p = Product("Sport", "Football T-Shirt", 100)
+p2 = Product("Food", "Ramen", 1.5)
 s = ProductStore()
 s.add(p, 10)
 s.add(p2, 300)
-s.sell(‘Ramen’, 10)
-assert s.get_product_info(‘Ramen’) == (‘Ramen’, 290)
+s.sell("Ramen", 10)
+assert s.get_product_info("Ramen") == ("Ramen", 290)
