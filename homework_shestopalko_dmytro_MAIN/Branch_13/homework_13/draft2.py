@@ -7,5 +7,5 @@ var_02 = [i for i in list_02 if i >= 0]
 print(var_02)
 
 list_03 = [7, 11, 5, 4]
-var_03 = [i*i for i in list_03]
+var_03 = [i * i for i in list_03]
 print(list_03)
