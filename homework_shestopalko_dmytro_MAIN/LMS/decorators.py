@@ -10,6 +10,9 @@ def time_function(f):
         return result
     return wrapper
 
+# @time_function is a syntatic sugar for this:
+# decorated_fun = time_function(square_numbers)
+
 
 @time_function
 def square_numbers(num_list):
