@@ -43,15 +43,16 @@ def new_user(phonebook_list: list):
     phonebook_list.append(new_user)
     phonebook(phonebook_list)
 
+def open_phonebook(phonebook_list:list):
+    with open("phonebook_list.json", "r") as phonebook_file:
+        phonebook_list = json.load(phonebook_file)
+        print(*phonebook_list, sep='\n')
+    select_user = input("Please, select the first_name of the user: ")
 
 def delete_contact(phonebook_list: list):
     # select_contact = int(input("Please, select a contact you would like to delete: "))
     open_phonebook(phonebook_list)
 
-def open_phonebook(phonebook_list:list):
-    with open("phonebook_list.json", "r") as phonebook_file:
-        phonebook_list = json.load(phonebook_file)
-    open_phonebook(phonebook_list)
 
 def phonebook(phonebook_list: Optional[list] = None):
 
