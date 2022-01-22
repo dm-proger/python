@@ -41,17 +41,26 @@ def new_user(phonebook_list: list):
     new_user["city"] = city
 
     phonebook_list.append(new_user)
+    function_write(phonebook_list)
     phonebook(phonebook_list)
 
-def open_phonebook(phonebook_list:list):
+def delete_contact(phonebook_list:list):
     with open("phonebook_list.json", "r") as phonebook_file:
         phonebook_list = json.load(phonebook_file)
         print(*phonebook_list, sep='\n')
-    select_user = input("Please, select the first_name of the user: ")
+    select_user = input("Please, select the first_name of the user, you would like to delete: ")
+    for contact in phonebook_list:
+        for value in contact.values():
+            if select_user == value:
+                phonebook_list.remove(contact)
+                print("The user is deleted")
+                function_write(phonebook_list)
+                break
+    phonebook(phonebook_list)
 
-def delete_contact(phonebook_list: list):
-    # select_contact = int(input("Please, select a contact you would like to delete: "))
-    open_phonebook(phonebook_list)
+def function_write(phonebook_list: list):
+    with open("phonebook_list.json", "w") as phonebook_file:
+        json.dump(phonebook_list, phonebook_file, indent=4)
 
 
 def phonebook(phonebook_list: Optional[list] = None):
@@ -65,10 +74,8 @@ def phonebook(phonebook_list: Optional[list] = None):
     elif open_app == 3:
         delete_contact(phonebook_list)
     elif open_app == 9:
-        with open("phonebook_list.json", "w") as phonebook_file:
-            json.dump(phonebook_list, phonebook_file)
+        function_write(phonebook_list)
         print("Exit")
-        exit()
     else:
         print("Please, try again: ")
 
