@@ -3,8 +3,18 @@ class Salary:
         self.pay = pay
         self.bonus = bonus
 
+    # If we want to work without constructor
+    # def salary_methods(self, pay, bonus):
+    #     self.pay = pay
+    #     self.bonus = bonus
+
     def annual_salary(self):
         return(self.pay*12) + self.bonus
+
+# If we want to work without constructor
+# s = Salary()
+# s.salary_methods(12000, 4000)
+
 
 class Employee: # Agregation represents HAS-A relation ship #Employee has a Salary
     def __init__(self, name, age, salary):
