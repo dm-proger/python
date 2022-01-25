@@ -11,14 +11,7 @@
 # All 3 classes must have a readable __repr__ and __str__ methods.
 # Also, the book class should have a class variable which holds the amount of all existing books
 
-class Library():
-    # all_books =
-    def __init__(self, books: list, authors: list):
-        self.books = books
-        self.authors = authors
-
-
-class Author(Library):
+class Author():
     def __init__(self, name_auth: str, country: str, birthday: str, books: list):
         self.name_auth = name_auth
         self.country = country
@@ -30,11 +23,17 @@ print(f"Hello! I am {author_001.name_auth}. My homecountry is {author_001.countr
       f"I wrote a book {author_001.books}")
 
 
-class Book(Library):
+class Book():
     def __init__(self, name_book: str, year: int, author: str):
         self.name_book = name_book
         self.year = year
-        self.author = Author(author)
+        self.author = author
+
+class Library():
+    def __init__(self, library_name: str, books: list, authors: list):
+        self.library_name = library_name
+        self.books = books
+        self.authors = authors
 
     def new_book(self, name_book: str, year: int, author: Author):
         pass
@@ -44,6 +43,11 @@ class Book(Library):
 
     def group_by_year(self, year: int):
         pass
+
+
+
+
+
 
 
 
