@@ -4,7 +4,7 @@
 #  "add called with 4, 5"
 
 def logger(func):
-    def wrapper(x = 10, y = -20):
+    def wrapper(x = 10, y = 90):
         if x+y > -3:
             print("All good")
         else:
@@ -16,11 +16,12 @@ def logger(func):
 @logger
 def add(x, y):
     return x + y
-print(add())
 
+add()
 
 @logger
 def square_all(*args):
     list_square_all = [arg ** 2 for arg in args]
     return list_square_all
-print(square_all())
+
+square_all()
