@@ -12,9 +12,11 @@ class Person():
         self.second_name = second_name
         self.age = age
 
+    def set_first_name(self, my_first_name):
+        self.first_name = my_first_name
 
-# person_01 = Person("Dmytro", "Shestopalko", 29)
-# print(f"My name is {person_01.first_name}, my second name is {person_01.second_name}. I am {person_01.age} years old.")
+person_01 = Person("Dmytro", "Shestopalko", 29)
+print(f"My name is {person_01.first_name}, my second name is {person_01.second_name}. I am {person_01.age} years old.")
 
 class Teacher(Person):
     def __init__(self, first_name: str, second_name: str, salary: str, subject: str, work_hrs: int, age: int):

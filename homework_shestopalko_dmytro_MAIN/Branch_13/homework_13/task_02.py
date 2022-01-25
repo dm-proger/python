@@ -7,7 +7,6 @@
 # filter_leaps (takes a list of dates (integers) and removes those that are not 'leap years'
 
 class Mathematician:
-    pass
 
 
     def square_nums(self, nums:list):
@@ -17,12 +16,14 @@ class Mathematician:
         return[i for i in positives if i < 0]
 
     def filter_leaps(self, leaps:list):
-        return [i for i in leaps if i % 4]
+        return [i for i in leaps if i % 4 == 0]
 
 m = Mathematician()
 assert m.square_nums([7, 11, 5, 4]) == [49, 121, 25, 16]
 assert m.remove_positives([26, -11, -8, 13, -90]) == [-11, -8, -90]
 assert m.filter_leaps([2001, 1884, 1995, 2003, 2020]) == [1884, 2020]
+
+# print(m.filter_leaps([2001, 1884, 1995, 2003, 2020]))
 
 
 

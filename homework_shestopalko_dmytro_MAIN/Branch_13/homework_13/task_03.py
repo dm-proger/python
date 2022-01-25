@@ -21,21 +21,6 @@
 # get_all_products() - returns information about all available products in the store.
 # get_product_info(product_name) - returns a tuple with product name and amount of items in the store.
 
-class Product():
-    def __init__(self, type_atr: str, name: str, price: int):
-        self.type_atr = type_atr
-        self.name = name
-        self.price = price
-
-class ProductStore(Product):
-    def __init__(self, add: float, set_discount: float, sell_product, get_income, get_all_products, get_product_info):
-        self.add = 0.3*add
-        self.set_discount = set_discount
-        self.sell_product = sell_product
-        self.get_income = get_income
-        self.get_all_products = get_all_products
-        self.get_product_info = get_product_info
-
 p = Product("Sport", "Football T-Shirt", 100)
 p2 = Product("Food", "Ramen", 1.5)
 s = ProductStore()
@@ -43,3 +28,31 @@ s.add(p, 10)
 s.add(p2, 300)
 s.sell("Ramen", 10)
 assert s.get_product_info("Ramen") == ("Ramen", 290)
+
+class Product:
+    def __init__(self, type_atr: str, name: str, price: int):
+        self.type_atr = type_atr
+        self.name = name
+        self.price = price
+
+class ProductStore(Product):
+    def __init__(self):
+        ...
+    def add(self):
+        ...
+
+    def set_discount(self):
+        ...
+
+    def sell_product(self):
+        ...
+
+    def get_income(self):
+        ...
+
+    def get_all_products(self):
+        ...
+
+    def get_product_info(self, product_name: str, ):
+        ...
+
