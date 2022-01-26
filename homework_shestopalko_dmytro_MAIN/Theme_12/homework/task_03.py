@@ -1,6 +1,5 @@
 CHANNELS = ["BBC", "Discovery", "TV1000"]
 
-
 class TVController:
     def __init__(self, channels):
         self.channels = channels
@@ -48,13 +47,11 @@ class TVController:
         try:
             if type(channel) == int and self.channels[channel - 1]:
                 print("Yes")
-
             elif type(channel) == str:
                 if channel in self.channels:
                     print("Yes")
                 else:
                     print("No")
-
         except IndexError:
             print("No")
 
