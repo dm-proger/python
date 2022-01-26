@@ -41,16 +41,17 @@ product_list = [product_01, product_02]
 
 
 class ProductStore(Product):
-    def __init__(self, type_atr: str, name: str, price: int, product_01: str, product_02: str, product_03: str):
+    def __init__(self, type_atr: str, name: str, price: int, product_03: str, product_04: str, product_05: str):
         super().__init__(type_atr, name, price)
-        self.product_01 = product_01
-        self.product_02 = product_02
-        self.product_03 = product_03
+        self.product_01 = product_03
+        self.product_02 = product_04
+        self.product_03 = product_05
 
     # # add(product, amount) - adds a specified quantity of a single product
     # #       with a predefined price premium for your store(30 percent)
-    # def add(self):
-    #
+    def add(self):
+        new_item = product_list.append(self)
+        return new_item
     #
     # # set_discount(identifier, percent, identifier_type=’name’) -
     # #   adds a discount for all products specified by input identifiers (type or name).
@@ -77,9 +78,8 @@ class ProductStore(Product):
 
 
 def main():
-    print(
-        f"Here is a category of {product_01.type_atr}, the object is {product_01.name}. The price per piece is {product_01.price}")
-    print(repr(product_list[0]))
+    print(f"Here is a category of {product_01.type_atr}, the object is {product_01.name}. The price per piece is {product_01.price}")
+    # print(repr(product_list[0]))
 
 if __name__ == "__main__":
     main()
