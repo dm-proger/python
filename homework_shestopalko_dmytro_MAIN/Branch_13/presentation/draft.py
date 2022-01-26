@@ -1,12 +1,18 @@
-def speak_robot():
-    print("Hello humans!")
+class Robot:
+    def __init__(self, name: str, model: str, language: str):
+        self.name_field = name
+        self.model_field = model
+        self.language_field = language
 
-def decorate_robot(func):
-    def inner_robot():
-        print("executing", func.__name__, "function")
-        func()
-        print("Finished execution")
-    return inner_robot
+    def speak_robot(self):
+        print("Hello human")
 
-decorated_func = decorate_robot(speak_robot)
-decorated_func()
+
+def main():
+    robot_01 = Robot("R2-D2", "droid", "vocalisation of binary")
+    print(f"My name is {robot_01.name_field}. I am {robot_01.model_field}. I speak in {robot_01.language_field}")
+    robot_01.speak_robot()
+
+
+if __name__ == "__main__":
+    main()

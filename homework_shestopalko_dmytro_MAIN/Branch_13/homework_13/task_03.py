@@ -37,6 +37,7 @@ class Product:
         self.price = price
 
 product_01 = Product("sport", "football T-shirt", 100)
+product_02 = Product("food", "ramen", 1.5)
 
 class ProductStore(Product):
     def __init__(self, type_atr: str, name: str, price: int, product_01: str, product_02: str, product_03: str):
