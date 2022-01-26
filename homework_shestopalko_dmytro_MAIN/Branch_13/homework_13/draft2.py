@@ -1,11 +1,21 @@
-list_01 = [2001, 1884, 1995, 2003, 2020]
-var_01 = [i for i in list_01 if i % 4]
-print(var_01)
+class Product:
+    def __init__(self, type_atr: str, name: str, price: int):
+        self.type_atr = type_atr
+        self.name = name
+        self.price = price
 
-list_02 = [26, -11, -8, 13, -90]
-var_02 = [i for i in list_02 if i >= 0]
-print(var_02)
+    def __repr__(self):
+        product_object = product_list
+        return product_object
 
-list_03 = [7, 11, 5, 4]
-var_03 = [i*i for i in list_03]
-print(list_03)
+product_01 = Product("sport", "football T-shirt", 100)
+product_02 = Product("food", "ramen", 1.5)
+
+product_list = [product_01, product_02]
+
+def main():
+    print(f"Here is a category of {product_01.type_atr}, the object is {product_01.name}. The price per piece is {product_01.price}")
+    print(repr(product_list[0]))
+
+if __name__ == "__main__":
+    main()
