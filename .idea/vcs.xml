@@ -3,7 +3,9 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/FamilyMovieCatalog" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/first_team_calculator_pyqt" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/homework_shestopalko_dmytro" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/python_start" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/shared_python_20211208" vcs="Git" />
   </component>
 </project>
