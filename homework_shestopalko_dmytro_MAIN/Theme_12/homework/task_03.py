@@ -1,4 +1,4 @@
-CHANNELS = ["BBC", "Discovery", "TV1000"]
+channels = ["BBC", "Discovery", "TV1000"]
 
 class TVController:
     def __init__(self, channels):
@@ -18,11 +18,11 @@ class TVController:
             self.turned_channel = self.channels[self.count_number]
             return self.turned_channel
 
-        except IndexError("There is no such a channel") as executed:
-            print(executed)
+        except IndexError:
+            print("There is no such a channel")
 
-        except TypeError("Please, enter a number on the remote control") as executed:
-            print(executed)
+        except TypeError:
+            print("Please, enter a number on the remote control")
 
     def next_channel(self):
         if self.count_number == len(self.channels) - 1:
@@ -56,7 +56,7 @@ class TVController:
             print("No")
 
     def main():
-        controller = TVController(CHANNELS)
+        controller = TVController(channels)
         print(controller.first_channel)
         print(controller.last_channel())
         print(controller.turn_channel(1))
