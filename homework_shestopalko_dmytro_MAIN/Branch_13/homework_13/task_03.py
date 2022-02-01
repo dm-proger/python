@@ -22,57 +22,80 @@
 # assert s.get_product_info("Ramen") == ("Ramen", 290)
 
 class Product:
-    def __init__(self, type_atr: str, name: str, price: int, quantity: int):
+    def __init__(self, type_atr: str, name: str, price: int|float):
         self.type_atr = type_atr
         self.name = name
         self.price = price
-        self.quantity = quantity
 
-product_01 = Product("sport", "football T-shirt", 100, 20)
-product_02 = Product("food", "ramen", 1.5, 30)
+    def __repr__(self):
+        return self.name
 
-class ProductStore(Product):
-    def __init__(self, type_atr: str, name: str, price: int, quantity: int, product_list: list):
-        super().__init__(type_atr, name, price, quantity)
-        self.product_list = product_list
 
-    product_list = [product_01, product_02]
+class ProductStore:
+    def __init__(self, product_dict: dict):
+        self.products = product_dict
+
+    def __repr__(self):
+        res = ""
+        for i in self.products:
+            res += str(i) + ": amount = " + str(self.products[i]) + "; total cost = " + str(i.price * self.products[i]) + "\n"
+        return res
 
 # # add(product, amount) - adds a specified quantity of a single product
 # #       with a predefined price premium for your store(30 percent)
-    def add(self):
-        self.quantity == 1
-        self.price == 0.3*price
-        product_list.append(product_new)
+    def add(self, product: Product, amount: int):
+        if product in self.products:
+            self.products[product] += amount
+        else:
+            self.products[product] = amount
+        return self.products
 #
 # # set_discount(identifier, percent, identifier_type=’name’) -
 # #   adds a discount for all products specified by input identifiers (type or name).
 #
-    def set_discount(self):
-        ...
+    def set_discount(self, identifier: str, percent: float, identifier_type:str = "name"):
+        for i in self.products:
+            if identifier_type == "name":
+                if identifier == i.name:
+                    i.price -= i.price * percent / 100
+            else:
+                if identifier == i.type:
+                    i.price -= i.price * percent / 100
+
+
 #
 # # sell_product(product_name, amount) - removes a particular amount of products from the store if available,
 # #        in other case raises an error.
-def sell_product(self):
-    ...
+    def sell_product(self):
+        ...
 #
 # # get_income() - returns amount of many earned by ProductStore instance.
-def get_income(self):
-    ...
-#
+    def get_income(self):
+        ...
+    #
 # # get_all_products() - returns information about all available products in the store.
-def get_all_products(self):
-    ...
+    def get_all_products(self):
+        ...
 #
 # # get_product_info(product_name) - returns a tuple with product name and amount of items in the store.
-def get_product_info(self, product_name: str, ):
-    ...
+    def get_product_info(self, product_name: str, ):
+        ...
 
 
 def main():
+    product_01 = Product("sport", "football T-shirt", 100)
+    product_02 = Product("food", "ramen", 1.5)
     print(
         f"Here is a category of {product_01.type_atr}, the object is {product_01.name}. The price per piece is {product_01.price}")
 
+    store = ProductStore({product_01: 3, product_02: 5})
+    store.add(Product("food", "bananas", 7), 5)
+    store.add(product_02, 5)
+
+    store.set_discount("bananas", 10)
+
+
+    print(store)
 
 if __name__ == "__main__":
     main()
