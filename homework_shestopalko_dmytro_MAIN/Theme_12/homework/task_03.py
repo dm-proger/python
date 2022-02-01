@@ -63,8 +63,8 @@ def main():
     print(controller.next_channel())
     print(controller.previous_channel())
     print(controller.current_channel())
-    controller.is_exist(4)
-    controller.is_exist("BBC")
+    controller.is_exist(2)
+    controller.is_exist("Discovery")
 
 if __name__ == "__main__":
     main()
