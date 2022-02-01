@@ -55,12 +55,14 @@ class ProductStore:
 #
     def set_discount(self, identifier: str, percent: float, identifier_type:str = "name"):
         for i in self.products:
-            if identifier_type == "name":
-                if identifier == i.name:
-                    i.price -= i.price * percent / 100
-            else:
-                if identifier == i.type:
-                    i.price -= i.price * percent / 100
+            # if identifier_type == "name":
+            #     if identifier == i.name:
+            #         i.price -= i.price * percent / 100
+            # else:
+            #     if identifier == i.type:
+            #         i.price -= i.price * percent / 100
+            if getattr(i, identifier_type) == identifier:
+                i.price -= i.price * percent / 100
 
 
 #
