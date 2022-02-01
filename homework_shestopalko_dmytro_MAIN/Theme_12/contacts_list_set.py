@@ -27,12 +27,12 @@
 
 
 
-def calc():
-    side = int(input(" "))
-    p = 4 * side
-    a = side * side
-
-    print("Perimeter: " + str(p))
-    print("Area: " + str(a))
-
-calc()
+# def calc():
+#     side = int(input(" "))
+#     p = 4 * side
+#     a = side * side
+#
+#     print("Perimeter: " + str(p))
+#     print("Area: " + str(a))
+#
+# calc()

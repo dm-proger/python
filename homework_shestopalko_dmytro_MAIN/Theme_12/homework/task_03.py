@@ -29,14 +29,14 @@ class TVController:
             self.count_number = 0
         else:
             self.count_number += 1
-            self.turned_channel = self.channels[self.count_number]
+        self.turned_channel = self.channels[self.count_number]
         return self.turned_channel
 
     def previous_channel(self):
         if self.count_number == 0:
             self.count_number == len(self.channels) - 1
         else:
-            self.count_number += 1
+            self.count_number -= 1
         self.turned_channel = self.channels[self.count_number]
         return self.turned_channel
 
@@ -55,16 +55,16 @@ class TVController:
         except IndexError:
             print("No")
 
-    def main():
-        controller = TVController(channels)
-        print(controller.first_channel)
-        print(controller.last_channel())
-        print(controller.turn_channel(1))
-        print(controller.next_channel())
-        print(controller.previous_channel())
-        print(controller.current_channel())
-        controller.is_exist(4)
-        controller.is_exist("BBC")
+def main():
+    controller = TVController(channels)
+    print(controller.first_channel())
+    print(controller.last_channel())
+    print(controller.turn_channel(1))
+    print(controller.next_channel())
+    print(controller.previous_channel())
+    print(controller.current_channel())
+    controller.is_exist(4)
+    controller.is_exist("BBC")
 
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
