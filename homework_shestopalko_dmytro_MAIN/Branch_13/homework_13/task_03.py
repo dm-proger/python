@@ -53,20 +53,20 @@ class ProductStore(Product):
 #
 # # sell_product(product_name, amount) - removes a particular amount of products from the store if available,
 # #        in other case raises an error.
-# def sell_product(self):
-#     ...
+def sell_product(self):
+    ...
 #
 # # get_income() - returns amount of many earned by ProductStore instance.
-# def get_income(self):
-#     ...
+def get_income(self):
+    ...
 #
 # # get_all_products() - returns information about all available products in the store.
-# def get_all_products(self):
-#     ...
+def get_all_products(self):
+    ...
 #
 # # get_product_info(product_name) - returns a tuple with product name and amount of items in the store.
-# def get_product_info(self, product_name: str, ):
-#     ...
+def get_product_info(self, product_name: str, ):
+    ...
 
 
 def main():
