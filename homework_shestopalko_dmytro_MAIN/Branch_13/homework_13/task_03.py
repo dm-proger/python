@@ -20,9 +20,8 @@
 # s.add(p2, 300)
 # s.sell("Ramen", 10)
 # assert s.get_product_info("Ramen") == ("Ramen", 290)
-
 class Product:
-    def __init__(self, type_atr: str, name: str, price: int|float):
+    def __init__(self, type_atr: str, name: str, price: float):
         self.type_atr = type_atr
         self.name = name
         self.price = price
@@ -72,33 +71,56 @@ class ProductStore:
         except NameError:
             print("There is no such an item")
 
-#
-# # get_income() - returns amount of many earned by ProductStore instance.
-    def get_income(self):
-        ...
-    #
+
+    def get_income(self, product: Product, price):
+        if product in self.products:
+            # product_price = self.products[product][2]
+            # product_quantity = self.products[1]
+            # total_income = product_price * product_quantity
+            # total_income = price * self.products[]
+            # return total_income
+
+            # dict_pairs = self.products.items()
+            # pairs_iterator = iter(dict_pairs)
+            # first_pair = next(pairs_iterator)
+            # product_amount = first_pair[1]
+            # print(first_pair)
+            # print(product_amount)
+
+            product_amount = next(iter(self.products.items()))[1]
+            total_income = product_amount * price
+            print(product_amount)
+            print(total_income)
+
+        else:
+            print("Error")
+
+
 # # get_all_products() - returns information about all available products in the store.
     def get_all_products(self):
         ...
 #
 # # get_product_info(product_name) - returns a tuple with product name and amount of items in the store.
-    def get_product_info(self, product_name: str, ):
+    def get_product_info(self, product_name: str):
         ...
 
 
 def main():
-    product_01 = Product("sport", "football T-shirt", 100)
+    product_01 = Product("sport", "football T-shirt", 10)
     product_02 = Product("food", "ramen", 1.5)
-    print(f"Here is a category of {product_01.type_atr}, the object is {product_01.name}. "
-          f"The price per piece is {product_01.price}")
+    # print(f"Here is a category of {product_01.type_atr}, the object is {product_01.name}. "
+    #       f"The price per piece is {product_01.price}")
 
-    store = ProductStore({product_01: 3, product_02: 5})
+    store = ProductStore({product_01: 50, product_02: 5})
     store.add(Product("food", "bananas", 7), 5)
+    store.add(Product("food", "apples", 10), 9)
     store.add(product_02, 5)
     store.set_discount("bananas", 10)
-    store.sell_product(product_03, 1)
-
     print(store)
+
+    store.get_income(product_01, 10)
+    # print(f"the income from sold items is: " + str({store}))
+
 
 if __name__ == "__main__":
     main()
