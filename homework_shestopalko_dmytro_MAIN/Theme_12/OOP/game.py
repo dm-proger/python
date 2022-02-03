@@ -38,15 +38,13 @@ m = Monster()
 a = Alien()
 
 while True:
-    user_input = input(" ")
+    user_input = input("select: ")
     if user_input == "exit":
         break
     elif user_input == "laser":
         a = a.hit()
-        continue
     elif user_input == "gun":
         m = m.hit()
-        continue
     else:
         break
 
