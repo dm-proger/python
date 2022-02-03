@@ -72,8 +72,8 @@ class ProductStore:
             print("There is no such an item")
 
 
-    def get_income(self, product: Product, price):
-        if product in self.products:
+    def get_income(self, product: Product, price: float, amount: int):
+        # if product in self.products:
             # product_price = self.products[product][2]
             # product_quantity = self.products[1]
             # total_income = product_price * product_quantity
@@ -87,16 +87,21 @@ class ProductStore:
             # print(first_pair)
             # print(product_amount)
 
-            product_amount = next(iter(self.products.items()))[1]
-            total_income = product_amount * price
-            print(product_amount)
-            print(total_income)
-
-        else:
-            print("Error")
+            # product_amount = next(iter(self.products.items()))[1]
+            # total_income = product_amount * price
+            # print(product_amount)
+            # print(total_income)
 
 
 # # get_all_products() - returns information about all available products in the store.
+        if product in self.products:
+            price = self.products[product][2]
+            amount = store[product_01]
+            sold_items = price * amount
+            print(sold_items)
+        else:
+            print("error")
+
     def get_all_products(self):
         ...
 #
@@ -118,7 +123,7 @@ def main():
     store.set_discount("bananas", 10)
     print(store)
 
-    store.get_income(product_01, 10)
+    store.get_income()
     # print(f"the income from sold items is: " + str({store}))
 
 
