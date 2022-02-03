@@ -31,3 +31,25 @@ my_func(2, 3, 4, 5, 6, a=7, b=8)
 
 # a and b are the names of the arguments that we passed to the function call.
 # The arguments returned by **kwargs are not included in *args.
+
+
+# Python program to reverse a string using recursion
+
+# Function to print reverse of the passed string
+def reverse(string):
+    if len(string) == 0:
+        return
+
+    temp = string[0]
+    reverse(string[1:])
+    print(temp, end='')
+
+
+# Driver program to test above function
+string = "Geeks for Geeks"
+reverse(string)
+
+# A single line statement to reverse string in python
+# string[::-1]
+
+# This code is contributed by Bhavya Jain
