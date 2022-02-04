@@ -76,8 +76,10 @@
 # # dev_1.apply_raise()
 # # print(dev_1.pay)
 
-assortment = {"bananas": 3}
-# assortment2 = {"apples": 4}
-# assortment.update(assortment2)
-assortment["apples"] = 4
-print(assortment)
+# assortment = {"bananas": 3}
+# # assortment2 = {"apples": 4}
+# # assortment.update(assortment2)
+# assortment["apples"] = 4
+# print(assortment)
+
+
