@@ -27,26 +27,31 @@ class Enemy:
 
 class Monster(Enemy):
     def __init__(self):
-        super().__init__('Monster', 10)
+        super().__init__('Monster', 3)
 
 
 class Alien(Enemy):
     def __init__(self):
-        super().__init__('Alien', 50)
+        super().__init__('Alien', 5)
 
 m = Monster()
 a = Alien()
 
+
 while True:
-    user_input = input("select: ")
+    user_input = input()
     if user_input == "exit":
         break
     elif user_input == "laser":
-        a = a.hit()
+        a.hit()
+        continue
     elif user_input == "gun":
-        m = m.hit()
+        m.hit()
+        continue
     else:
         break
+
+
 
 # 2. Complete the while loop that continuously takes the weapon of choice from user input
 # and call the corresponding object's hit() method.
