@@ -48,7 +48,7 @@ class Library():
         except TypeError as exc:
             print(exc)
 
-    # - group_by_year(year: int) - returns a list of all the books grouped by the specified year
+
     def group_by_year(self, year: int):
         new_book = list(filter(lambda book: book.year == year, self.books))
         if new_book == []:
