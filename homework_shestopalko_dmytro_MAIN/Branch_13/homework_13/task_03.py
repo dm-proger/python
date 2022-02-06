@@ -20,6 +20,7 @@
 # s.add(p2, 300)
 # s.sell("Ramen", 10)
 # assert s.get_product_info("Ramen") == ("Ramen", 290)
+
 class Product:
     def __init__(self, type_atr: str, name: str, price: float):
         self.type_atr = type_atr
@@ -31,7 +32,8 @@ class Product:
 
 
 class ProductStore:
-    def __init__(self, product_dict: dict):
+    income = 0
+    def __init__(self, product_dict: dict = {}):
         self.products = product_dict
 
     def __repr__(self):
@@ -65,15 +67,18 @@ class ProductStore:
         try:
             if product in self.products:
                 self.products[product] -= amount
+                self.income = amount * self.price
             else:
-                self.products[product] = amount
+                print("Item is not available")
             return self.products
         except NameError:
             print("There is no such an item")
 
 
-    def get_income(self, product: Product, price: Product):
-        if product in self.products:
+    def get_income(self):
+        return self.income
+
+        # if product in self.products:
             # product_price = self.products[product][2]
             # product_quantity = self.products[1]
             # total_income = product_price * product_quantity
@@ -87,27 +92,35 @@ class ProductStore:
             # print(first_pair)
             # print(product_amount)
 
-            product_amount = next(iter(self.products.items()))[1]
-            total_income = product_amount * price
-            print(product_amount)
-            print(total_income)
+            # product_amount = next(iter(self.products.items()))[1]
+            # total_income = product_amount * price
+            # print(product_amount)
+            # print(total_income)
 
-
-# # get_all_products() - returns information about all available products in the store.
-#         if product in self.products:
-#             price = self.products[product][2]
-#             amount = store[product_01]
-#             sold_items = price * amount
-#             print(sold_items)
-#         else:
-#             print("error")
 
     def get_all_products(self):
-        ...
+        if self.products:
+            return self.products
+        else:
+            print("Store is empty")
+        #- returns information about all available products in the store.
+        # if product in self.products:
+        #     price = self.products[product][2]
+        #     amount = store[product_01]
+        #     sold_items = price * amount
+        #     print(sold_items)
+        # else:
+        #     print("error")
+
+
 #
 # # get_product_info(product_name) - returns a tuple with product name and amount of items in the store.
     def get_product_info(self, product_name: str):
-        ...
+        for item, item_info in self.products.items():
+            if item.name == product_name:
+                print(item.name, item_info)
+                return item.name, item_info
+        print("The product is not found")
 
 
 def main():
@@ -123,8 +136,8 @@ def main():
     store.set_discount("bananas", 10)
     print(store)
 
-    store.get_income(product_02, 1)
-    # print(f"the income from sold items is: " + str({store}))
+    store.get_income()
+    print(f"the income from sold items is: " + str({store}))
 
 
 if __name__ == "__main__":
