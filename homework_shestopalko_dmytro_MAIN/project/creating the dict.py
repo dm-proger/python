@@ -16,7 +16,7 @@ def add_employee():
 
 def function_write(dict_employee: dict):
     with open("employee_info.json", "w") as file_object:
-        json.dump(dict_employee, file_object,  indent=4)
+        json.dump(dict_employee, file_object, indent=4)
 
 
 
