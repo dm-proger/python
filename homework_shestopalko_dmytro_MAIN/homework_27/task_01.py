@@ -4,6 +4,8 @@ class UnorderedList:
 
     def __init__(self):
         self._head = None
+        self._tail = None
+        self._length = None
 
     def is_empty(self):
         return self._head is None
@@ -54,15 +56,44 @@ class UnorderedList:
     # and return a copy of the list starting at the position and going up to but not including the stop position.
 
     def append(self, item):
+        temp = Node(item)
+        last = self._tail
+        if last:
+            last.set_next(temp)
+        else:
+            self._head = temp
+        self._tail = temp
+        self._length += 1
+
+
+    def index(self, item): #returns the position of item in the list. It needs the item and returns the index. Assume the item is in the list.
+        current = self._head
+        while current != None:
+            if current.get_data() == item:
+                return current.position
+            else:
+                current = current.get_next
+        print("Item is not present in the list")
+
+    # def index(self, item):
+    #     position = 0
+    #     current = self._head
+    #     found = False
+    #     while current is not None and not found:
+    #         if current.get_data() == item:
+    #             found = True
+    #         else:
+    #             current = current.get_next()
+    #             position += 1
+    #         if not found:
+    #             raise ValueError("Value error")
+    #         return position
+
+
+    def pop(self): #removes and returns the last item in the list. It needs nothing and returns an item. Assume the list has at least one item.
         ...
 
-    def index(self, item):
-        ...
-
-    def pop(self):
-        ...
-
-    def insert(self, pos, item):
+    def insert(self, pos, item): #adds a new item to the list at position pos. It needs the item and returns nothing. Assume the item is not already in the list and there are enough existing items to have position pos.
         ...
 
     def slice(self, start, stop):
@@ -106,3 +137,5 @@ if __name__ == "__main__":
     my_list.remove(31)
     print(my_list.size())
     print(my_list.search(93))
+    my_list.append(717)
+    print(my_list)
