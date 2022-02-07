@@ -6,20 +6,9 @@ class OrderedList:
     def __init__(self):
         self._head = None
 
-    def search(self, item):
-        current = self._head
-        found = False
-        stop = False
-        while current is not None and not found and not stop:
-            if current.get_data() == item:
-                found = True
-            else:
-                if current.get_data() > item:
-                    stop = True
-                else:
-                    current = current.get_next()
+    def is_empty(self):
+        return self._head is None
 
-        return found
 
     def add(self, item):
         current = self._head
@@ -40,8 +29,21 @@ class OrderedList:
             temp.set_next(current)
             previous.set_next(temp)
 
-    def is_empty(self):
-        return self._head is None
+    def search(self, item):
+        current = self._head
+        found = False
+        stop = False
+        while current is not None and not found and not stop:
+            if current.get_data() == item:
+                found = True
+            else:
+                if current.get_data() > item:
+                    stop = True
+                else:
+                    current = current.get_next()
+
+        return found
+
 
     def size(self):
         current = self._head
@@ -52,8 +54,11 @@ class OrderedList:
 
         return count
 
+    def slice(self, start, stop):
+        ...
+
     def __repr__(self):
-        representation = "<UnorderedList: "
+        representation = "<OrderedList: "
         current = self._head
         while current is not None:
             representation += f"{current.get_data()} "

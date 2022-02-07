@@ -75,20 +75,6 @@ class UnorderedList:
                 current = current.get_next
         print("Item is not present in the list")
 
-    # def index(self, item):
-    #     position = 0
-    #     current = self._head
-    #     found = False
-    #     while current is not None and not found:
-    #         if current.get_data() == item:
-    #             found = True
-    #         else:
-    #             current = current.get_next()
-    #             position += 1
-    #         if not found:
-    #             raise ValueError("Value error")
-    #         return position
-
 
     def pop(self): #removes and returns the last item in the list. It needs nothing and returns an item. Assume the list has at least one item.
         ...
