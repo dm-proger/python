@@ -1,4 +1,7 @@
 import json
+from project.temp_folder.temp_2 import my_temp_func
+
+
 
 dict_employee = {} # holds names as keys; dict_employee_value as value
 dict_employee_value = {} # holds position as a value and rate as a key
@@ -25,6 +28,12 @@ def function_write(dict_employee: dict):
 
 
 def main():
+
+
+    with open("employee_info.json", "r") as file_object:
+        dict_employee = json.load(file_object)
+
+
     add_employee()
 
 
