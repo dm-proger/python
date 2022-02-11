@@ -1,6 +1,6 @@
 import time
 
-# The code withot decorator
+# The code without decorator
 
 def calc_square(numbers):
     start = time.time() #code duplication
