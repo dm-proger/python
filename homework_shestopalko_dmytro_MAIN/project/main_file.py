@@ -2,12 +2,13 @@ import json
 
 
 list_employee = [] # list of employees with all the data
-dict_employee = {} # holds position as a key and rate as value
-dict_data = {} # holds name as a key and dict_employee as value
+employee_cell = [] # list of dicts with employee data
+employee_data = {} # holds key and value of employees
 
 
 def main_menu():
-    main_enter = int(input("If you are a user, please, enter 1. If you are a manager, please, enter 0. Exit - enter 9: "))
+    main_enter = int(input("If you are a user, please, enter 1. If you are a manager, please, enter 0. "
+                           "Exit - enter 9: "))
     if main_enter == 1:
         print("Here is the main interface for you")
         main_interface()
@@ -22,29 +23,21 @@ def main_menu():
 
 def add_employee():
     input_full_name = input("Enter the full name: ")
-    input_position_key = input("Enter the position of the employee: ")
-    input_rate_value = int(input("Enter the rate: "))
+    input_position = input("Enter the position of the employee: ")
+    input_rate = int(input("Enter the rate: "))
 
 
-    dict_data.update({input_position_key: input_rate_value})
-    dict_employee.update({input_full_name: dict_data})
-    list_employee.append(dict_employee)
+    employee_data["name"] = input_full_name
+    employee_data["position"] = input_position
+    employee_data["rate"] = input_rate
 
-    # dict_data[input_full_name] = dict_employee
-    # dict_employee[input_position_key] = input_rate_value
-    # list_employee.append(dict_employee)
+    employee_cell.append(employee_data)
+    list_employee.append(employee_cell)
 
 
     function_write(list_employee)
     print("The employee is successfully added")
     manager_function()
-
-
-    # phonebook_list.append(new_user)
-    # function_write(phonebook_list)
-    # phonebook(phonebook_list)
-
-
 
 
 def remove_employee():
@@ -89,6 +82,7 @@ def main():
 
     with open("employee_info.json", "r") as file_object:
         list_employee = json.load(file_object)
+    main_menu()
 
     main_menu()
 
