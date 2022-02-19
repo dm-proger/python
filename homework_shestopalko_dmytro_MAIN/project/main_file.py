@@ -1,8 +1,7 @@
 import json
 
 
-list_employee = [] # list of employees with all the data
-employee_cell = [] # list of dicts with employee data
+list_employee = [] # list of dicts with employees data
 employee_data = {} # holds key and value of employees
 
 
@@ -31,8 +30,7 @@ def add_employee():
     employee_data["position"] = input_position
     employee_data["rate"] = input_rate
 
-    employee_cell.append(employee_data)
-    list_employee.append(employee_cell)
+    list_employee.append(employee_data)
 
 
     function_write(list_employee)
